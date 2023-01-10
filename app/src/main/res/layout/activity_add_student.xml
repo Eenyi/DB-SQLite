@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddStudent">
+
+    <TextView
+        android:id="@+id/addStd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/add"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/stdName"
+        android:layout_width="287dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="@+id/addStd"
+        app:layout_constraintStart_toStartOf="@+id/addStd"
+        app:layout_constraintTop_toBottomOf="@+id/addStd" />
+
+    <EditText
+        android:id="@+id/stdRoll_no"
+        android:layout_width="287dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Roll Number"
+        app:layout_constraintEnd_toEndOf="@+id/stdName"
+        app:layout_constraintStart_toStartOf="@+id/stdName"
+        app:layout_constraintTop_toBottomOf="@+id/stdName" />
+
+    <EditText
+        android:id="@+id/stdDegree"
+        android:layout_width="287dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Degree"
+        app:layout_constraintEnd_toEndOf="@+id/stdRoll_no"
+        app:layout_constraintStart_toStartOf="@+id/stdRoll_no"
+        app:layout_constraintTop_toBottomOf="@+id/stdRoll_no" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="@+id/stdDegree"
+        app:layout_constraintStart_toStartOf="@+id/stdDegree"
+        app:layout_constraintTop_toBottomOf="@+id/stdDegree" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/empty"
+        app:layout_constraintEnd_toEndOf="@+id/submit"
+        app:layout_constraintStart_toStartOf="@+id/submit"
+        app:layout_constraintTop_toBottomOf="@+id/submit" />
+</androidx.constraintlayout.widget.ConstraintLayout>

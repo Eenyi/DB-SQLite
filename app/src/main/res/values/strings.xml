@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DB SQLite</string>
+    <string name="title">Students Data App</string>
+    <string name="add">Add Student</string>
+    <string name="update">Update Student</string>
+    <string name="delete">Delete Student</string>
+    <string name="view_all">View All Students</string>
+    <string name="submit">Submit</string>
+    <string name="empty"> </string>
 </resources>
