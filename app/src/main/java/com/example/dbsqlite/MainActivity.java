@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this, AddStudent.class);
                 startActivity(intent);
                 break;
-            case R.id.update:
+            case R.id.delete:
                 intent = new Intent(MainActivity.this, DeleteSudent.class);
                 startActivity(intent);
                 break;
-            case R.id.delete:
+            case R.id.update:
                 intent = new Intent(MainActivity.this, UpdateStudent.class);
                 startActivity(intent);
                 break;

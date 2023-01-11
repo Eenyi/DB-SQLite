@@ -24,7 +24,7 @@ public class AddStudent extends AppCompatActivity implements View.OnClickListene
         submit = findViewById(R.id.submit);
         submit.setOnClickListener(this);
         status = findViewById(R.id.status);
-        db = new DBhelper(this);
+        db = new DBhelper(AddStudent.this);
     }
 
     @Override

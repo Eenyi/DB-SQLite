@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,13 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBhelper extends SQLiteOpenHelper {
-    private static String DB_NAME = "Dumy.db";
-    private static String TABLE_NAME = "Students";
+    private static final String DB_NAME = "Dumy.db";
+    private static final String TABLE_NAME = "Students";
 
-    private static String SID = "sid";
-    private static String NAME = "name";
-    private static String ROLLNO = "roll_no";
-    private static String DEGREE = "degree";
+    private static final String SID = "sid";
+    private static final String NAME = "name";
+    private static final String ROLLNO = "roll_no";
+    private static final String DEGREE = "degree";
 
 
     public DBhelper(@Nullable Context context) {
@@ -50,9 +51,9 @@ public class DBhelper extends SQLiteOpenHelper {
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
-            cv.put(NAME, std.getName());
-            cv.put(ROLLNO, std.getRollNumber());
-            cv.put(DEGREE, std.getDegree());
+            cv.put("NAME", std.getName());
+            cv.put("ROLLNO", std.getRollNumber());
+            cv.put("DEGREE", std.getDegree());
             db.insert(TABLE_NAME, null, cv);
             db.close();
             return true;
@@ -61,24 +62,17 @@ public class DBhelper extends SQLiteOpenHelper {
         }
     }
 
-    public List<Student> viewAllStudents() {
+    public ArrayList<Student> viewAllStudents() {
         try {
-            List<Student> students = new ArrayList<>();
-            String sql = "SELECT * FROM " + TABLE_NAME;
-            SQLiteDatabase db = this.getWritableDatabase();
-            Cursor cursor = db.rawQuery(sql, null);
-            if (cursor.moveToFirst()) {
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cr = db.rawQuery("Select * from "+ TABLE_NAME,null);
+            ArrayList<Student> studentArrayList = new ArrayList<>();
+            if (cr.moveToFirst()) {
                 do {
-                    @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(SID));
-                    @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(NAME));
-                    @SuppressLint("Range") String rollNo = cursor.getString(cursor.getColumnIndex(ROLLNO));
-                    @SuppressLint("Range") String degree = cursor.getString(cursor.getColumnIndex(DEGREE));
-                    students.add(new Student(name, rollNo, degree));
-                } while (cursor.moveToNext());
+                    studentArrayList.add(new Student(cr.getString(1), cr.getString(2), cr.getString(3)));
+                } while (cr.moveToNext());
             }
-            cursor.close();
-            db.close();
-            return students;
+            return studentArrayList;
         }
         catch (Exception e) {
             return null;
@@ -90,10 +84,10 @@ public class DBhelper extends SQLiteOpenHelper {
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
-            cv.put(NAME, std.getName());
-            cv.put(ROLLNO, std.getRollNumber());
-            cv.put(DEGREE, std.getDegree());
-            db.update(TABLE_NAME, cv, ROLLNO + " = ?", new String[] {std.getRollNumber()});
+            cv.put("NAME", std.getName());
+            cv.put("ROLLNO", std.getRollNumber());
+            cv.put("DEGREE", std.getDegree());
+            String query = "update table students set Name ="+std.getName();
             db.close();
             return true;
         }

@@ -15,4 +15,8 @@ public class Student {
     public void setRollNumber(String rollNumber) { RollNumber = rollNumber; }
     public String getDegree() { return Degree; }
     public void setDegree(String degree) { Degree = degree; }
+    @Override
+    public String toString() {
+        return Name + "    " + RollNumber +"    " +Degree ;
+    }
 }

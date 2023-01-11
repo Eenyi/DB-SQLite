@@ -6,4 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".UpdateStudent">
 
+    <TextView
+        android:id="@+id/updateStd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/update"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/updateName"
+        android:layout_width="344dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Roll Number"
+        app:layout_constraintEnd_toEndOf="@+id/updateStd"
+        app:layout_constraintStart_toStartOf="@+id/updateStd"
+        app:layout_constraintTop_toBottomOf="@+id/updateStd" />
+
+    <EditText
+        android:id="@+id/updateRoll_no"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="@+id/updateName"
+        app:layout_constraintStart_toStartOf="@+id/updateName"
+        app:layout_constraintTop_toBottomOf="@+id/updateName" />
+
+    <EditText
+        android:id="@+id/updateDegree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Degree"
+        app:layout_constraintEnd_toEndOf="@+id/updateRoll_no"
+        app:layout_constraintStart_toStartOf="@+id/updateRoll_no"
+        app:layout_constraintTop_toBottomOf="@+id/updateRoll_no" />
+
+    <Button
+        android:id="@+id/updateSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="@+id/updateDegree"
+        app:layout_constraintStart_toStartOf="@+id/updateDegree"
+        app:layout_constraintTop_toBottomOf="@+id/updateDegree" />
+
+    <TextView
+        android:id="@+id/updateStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/empty"
+        app:layout_constraintEnd_toEndOf="@+id/updateSubmit"
+        app:layout_constraintStart_toStartOf="@+id/updateSubmit"
+        app:layout_constraintTop_toBottomOf="@+id/updateSubmit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
